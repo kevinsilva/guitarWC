@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.border-text {
+  color: white;
+  text-shadow: 0 0 1.5px black, 0 0 1.5px black, 0 0 1.5px black,
+    0 0 1.5px black;
+}
+
+.guitar-neck {
+  display: inline-block;
+  height: 20rem;
+  z-index: 2;
+}
+
+.guitar-body {
+  display: inline-block;
+  height: 9.6rem;
+  left: -0.3rem;
+  top: 11.8rem;
+}
+
+@media (min-width: 768px) {
+  .guitar-neck {
+    height: 30rem;
+  }
+
+  .guitar-body {
+    height: 14.6rem;
+    left: -0.6rem;
+    top: 17.6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .guitar-neck {
+    height: 29rem;
+  }
+
+  .guitar-body {
+    height: 14rem;
+    left: -0.5rem;
+    top: 17rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .guitar-neck {
+    height: 32rem;
+  }
+
+  .guitar-body {
+    height: 15.5rem;
+    left: -0.55rem;
+    top: 18.75rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .guitar-neck {
+    height: 35rem;
+  }
+
+  .guitar-body {
+    height: 17rem;
+    left: -0.6rem;
+    top: 20.5rem;
+  }
+}
+
+.selected {
+  border-color: #a3a3a3;
+  color: #71717a;
+}
+
+.correct::after {
+  content: "\2713";
+  display: inline-block;
+  position: relative;
+  left: 0.5rem;
+  font-size: 1rem;
+  color: #3f3f46;
+}
