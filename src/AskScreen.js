@@ -20,12 +20,14 @@ export default class AskScreen extends Screen {
 
   _renderQuestion() {
     if (!this.questionTxt) return;
+    if (!this.guitarColor) return;
 
     $(this.questionTxt).text("guess " + this.guitarColor.name);
   }
 
   _renderGuitarColor() {
     if (!this.guitar) return;
+    if (!this.guitarColor) return;
 
     $(this.guitar).css("fill", this.guitarColor.decimal);
   }

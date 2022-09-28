@@ -1,6 +1,8 @@
 import { describe, expect, it, vi } from "vitest";
 import Game from "./Game.js";
+import Screen from "./Screen.js";
 import GameManager from "./GameManager.js";
+import ScreenManager from "./ScreenManager.js";
 
 describe("Game Manager", () => {
   it("initializes with a new game", () => {
@@ -8,6 +10,21 @@ describe("Game Manager", () => {
     const game = new Game();
 
     expect(gameManager.game).toEqual(game);
+  });
+
+  it("initializes with a screen manager", () => {
+    const mockElement = vi.fn();
+    const start = new Screen(mockElement);
+    const ask = new Screen(mockElement);
+    const answer = new Screen(mockElement);
+    const end = new Screen(mockElement);
+
+    const screens = [start, ask, answer, end];
+
+    const screenManager = new ScreenManager(screens);
+    const gameManager = new GameManager(screenManager);
+
+    expect(gameManager.screenManager).toEqual(screenManager);
   });
 
   it("starts with the round set to zero", () => {
@@ -82,5 +99,83 @@ describe("Game Manager", () => {
     gameManager.restartGame();
     expect(gameManager.round).toEqual(1);
     expect(gameManager.game.questions).not.toEqual(questions);
+  });
+
+  describe("Load States", () => {
+    const mockElement = vi.fn();
+    const start = new Screen(mockElement);
+    const ask = new Screen(mockElement);
+    const answer = new Screen(mockElement);
+    const end = new Screen(mockElement);
+
+    const screens = [start, ask, answer, end];
+
+    const screenManager = new ScreenManager(screens);
+    const gameManager = new GameManager(screenManager);
+
+    gameManager.startGame();
+
+    it("loads state changes to the ask screen", () => {
+      gameManager.loadAskState();
+      const askScreen = gameManager.screenManager.screens[1];
+
+      expect(askScreen.guitarColor).toEqual(gameManager.currentQuestion);
+      expect(askScreen.generatedColors).toEqual(gameManager.currentOptions);
+      expect(askScreen.round).toEqual(gameManager.round);
+      expect(askScreen.points).toEqual(gameManager.game.points);
+    });
+
+    it("loads state changes to the answer screen", () => {
+      gameManager.loadAnswerState();
+      const answerScreen = gameManager.screenManager.screens[2];
+
+      expect(answerScreen.guitarColor).toEqual(gameManager.currentQuestion);
+      expect(answerScreen.points).toEqual(gameManager.game.points);
+    });
+
+    it("loads state changes to the answer screen", () => {
+      gameManager.loadEndState();
+      const endScreen = gameManager.screenManager.screens[3];
+
+      expect(endScreen.gameScore).toEqual(gameManager.game.points);
+    });
+  });
+
+  describe("Render State", () => {
+    const mockElement = vi.fn();
+    const start = new Screen(mockElement);
+    const ask = new Screen(mockElement);
+    const answer = new Screen(mockElement);
+    const end = new Screen(mockElement);
+
+    const screens = [start, ask, answer, end];
+
+    const screenManager = new ScreenManager(screens);
+    const gameManager = new GameManager(screenManager);
+
+    gameManager.startGame();
+
+    it("renders screen by calling correspondent render method", () => {
+      const askScreen = gameManager.screenManager.screens[1];
+
+      askScreen.init = vi.fn();
+
+      gameManager.renderAskScreen();
+      expect(askScreen.init).toHaveBeenCalled();
+
+      const answerScreen = gameManager.screenManager.screens[2];
+
+      answerScreen.init = vi.fn();
+      gameManager.renderAnswerScreen();
+
+      expect(answerScreen.init).toHaveBeenCalled();
+
+      const endScreen = gameManager.screenManager.screens[3];
+
+      endScreen.init = vi.fn();
+      gameManager.renderEndScreen();
+
+      expect(endScreen.init).toHaveBeenCalled();
+    });
   });
 });
