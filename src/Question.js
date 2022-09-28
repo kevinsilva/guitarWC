@@ -19,10 +19,4 @@ export default class Question {
 
     return this.correctAnswer;
   }
-
-  //TODO remover
-  // checkAnswer(answer) {
-  //   if (!this.correctAnswer) return null;
-  //   return answer === this.correctAnswer.decimal ? true : false;
-  // }
 }

@@ -113,4 +113,19 @@ describe("Answer Screen", () => {
 
   //   expect(answerScreen.onNextQuestionClick).toHaveBeenCalled();
   // });
+
+  it("adds the current score to target element", () => {
+    document.body.innerHTML =
+      '<div id="end-screen">' + '<h2 class="points"></h2>' + "</div>";
+
+    const input = {
+      elementID: "#end-screen",
+      pointsTxtID: "h2.points",
+      points: 0,
+    };
+
+    new AnswerScreen(input);
+
+    expect($("h2.points").text()).toBe("0 points");
+  });
 });

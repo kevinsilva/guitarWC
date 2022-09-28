@@ -12,8 +12,8 @@ export default class GameManager {
   }
 
   nextRound() {
-    if (this.round > 10) return;
     this.round++;
+    if (this.round >= 11) return;
     this.currentQuestion = this.game.questions[this.round].answer;
     this.currentOptions = this.game.questions[this.round].options;
   }

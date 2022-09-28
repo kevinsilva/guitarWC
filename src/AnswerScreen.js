@@ -12,6 +12,8 @@ export default class AnswerScreen extends Screen {
     this.isAnswerCorrect = input.isAnswerCorrect;
     this.guitarColor = input.guitarColor;
     this.answerBtns = input.answerBtnsID;
+    this.pointsTxt = input.pointsTxtID;
+    this.points = input.points;
 
     this.init();
   }
@@ -41,8 +43,15 @@ export default class AnswerScreen extends Screen {
     });
   }
 
+  _renderPoints() {
+    if (!this.pointsTxt) return;
+
+    $(this.pointsTxt).text(`${this.points} points`);
+  }
+
   init() {
     this._renderAnswerText();
     this._renderBtnAnswerStyle();
+    this._renderPoints();
   }
 }

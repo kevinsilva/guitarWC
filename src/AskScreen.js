@@ -12,6 +12,8 @@ export default class AskScreen extends Screen {
     this.guitar = input.guitarID;
     this.generatedColors = input.generatedColors;
     this.answerBtns = input.answerBtnsID;
+    this.roundTxt = input.roundTxtID;
+    this.round = input.round;
 
     this.init();
   }
@@ -53,10 +55,17 @@ export default class AskScreen extends Screen {
     }
   }
 
+  _renderRound() {
+    if (!this.roundTxt) return;
+
+    $(this.roundTxt).text(`round ${this.round} of 10`);
+  }
+
   init() {
     this._renderQuestion();
     this._renderGuitarColor();
     this._renderAnswerBtns();
     this._setAnswerBtnsEvents();
+    this._renderRound();
   }
 }

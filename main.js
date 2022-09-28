@@ -20,9 +20,10 @@ const askScreen = new AskScreen({
   questionTxtID: "#question",
   guitarColor: gameManager.currentQuestion,
   guitarID: "svg.guitar-body",
-  // guitarID: "#ask-screen.guitar",
   generatedColors: gameManager.currentOptions,
   answerBtnsID: [".button-0", ".button-1", ".button-2"],
+  roundTxtID: "h3.round",
+  round: gameManager.round,
 });
 
 const answerScreen = new AnswerScreen({
@@ -32,6 +33,8 @@ const answerScreen = new AnswerScreen({
   guitarID: "#answer-screen.guitar",
   answerBtnsID: [".button-0", ".button-1", ".button-2"],
   nextQuestionBtn: "#next-question",
+  pointsTxtID: "h3.points",
+  points: gameManager.game.points,
 });
 
 const endScreen = new EndScreen({
@@ -51,48 +54,40 @@ const screenManager = new ScreenManager([
 
 startScreen.setOnNextClick(() => {
   screenManager.showNext();
-  $("h3.round").text(`round ${gameManager.round} of 10`);
-  $("h3.points").text(`${gameManager.game.points} points`);
-
   console.log(gameManager.currentQuestion);
 });
 
 askScreen.setOnNextClick((answer) => {
-  $("h3.round").text(`round ${gameManager.round} of 10`);
-  $("h3.points").text(`${gameManager.game.points} points`);
-
   $("button").removeClass("correct incorrect");
   let result = gameManager.checkAnswer(answer);
   answerScreen.isAnswerCorrect = result;
   answerScreen.guitarColor = gameManager.currentQuestion;
+  answerScreen.points = gameManager.game.points;
   answerScreen.init();
   screenManager.showNext();
 });
 
 answerScreen.setOnNextClick(() => {
-  $("h3.points").text(`${gameManager.game.points} points`);
   $("button").removeClass("selected");
   gameManager.nextRound();
-  $("h3.round").text(`round ${gameManager.round} of 10`);
+  askScreen.round = gameManager.round;
   askScreen.guitarColor = gameManager.currentQuestion;
   askScreen.generatedColors = gameManager.currentOptions;
   askScreen.init();
   endScreen.gameScore = gameManager.game.points;
   endScreen.init();
 
-  console.log(gameManager.currentQuestion);
-
   if (gameManager.round > 10) {
     screenManager._showScreen(3);
   } else {
     screenManager._showScreen(1);
+    console.log(gameManager.currentQuestion);
   }
 });
 
 endScreen.setOnNextClick(() => {
   gameManager.restartGame();
-  $("h3.round").text(`round ${gameManager.round} of 10`);
-  $("h3.points").text(`${gameManager.game.points} points`);
+  askScreen.round = gameManager.round;
   askScreen.guitarColor = gameManager.currentQuestion;
   askScreen.generatedColors = gameManager.currentOptions;
   askScreen.init();

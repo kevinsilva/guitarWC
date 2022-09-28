@@ -10,7 +10,7 @@ export default class Game {
     const question = new Question();
     let counter = 1;
 
-    while (counter <= 11) {
+    while (counter <= 10) {
       questions[counter] = {
         options: question.getOptions(),
         answer: question.getCorrectAnswer(),

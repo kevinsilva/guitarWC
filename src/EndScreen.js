@@ -26,10 +26,12 @@ export default class EndScreen extends Screen {
     } else if (this.gameScore <= 80) {
       msg = "you got some chops!";
     } else {
-      var confettiElement = document.getElementById("confetti");
-      var confettiSettings = { target: confettiElement };
-      var confetti = new ConfettiGenerator(confettiSettings);
+      const confettiElement = document.getElementById("confetti");
+      const confettiSettings = { target: confettiElement };
+      const confetti = new ConfettiGenerator(confettiSettings);
+
       confetti.render();
+
       msg = "rgb legend.";
     }
 

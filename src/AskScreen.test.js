@@ -152,4 +152,19 @@ describe("Ask Screen", () => {
     expect(askScreen.onNextClick).not.toBeCalledWith("rgb(12, 43, 115)");
     expect($btn2.hasClass("selected")).toBe(false);
   });
+
+  it("adds the current round to target element", () => {
+    document.body.innerHTML =
+      '<div id="end-screen">' + '<h2 class="round"></h2>' + "</div>";
+
+    const input = {
+      elementID: "#end-screen",
+      roundTxtID: "h2.round",
+      round: 0,
+    };
+
+    new AskScreen(input);
+
+    expect($("h2.round").text()).toBe("round 0 of 10");
+  });
 });
