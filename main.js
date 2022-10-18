@@ -66,13 +66,14 @@ askScreen.setOnNextClick((answer) => {
 });
 
 answerScreen.setOnNextClick(() => {
+  gameManager.nextRound();
+
   $("button").removeClass("selected");
   gameManager.loadAskState();
   gameManager.renderAskScreen();
   gameManager.loadEndState();
   gameManager.renderEndScreen();
 
-  gameManager.nextRound();
 
   if (gameManager.round > 10) {
     screenManager._showScreen(3);
