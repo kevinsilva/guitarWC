@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import Game from "./Game.js";
+import Game from "../Game.js";
 
 describe.only("Game", () => {
   it("starts with points set to zero", () => {

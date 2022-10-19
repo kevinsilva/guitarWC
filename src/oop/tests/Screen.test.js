@@ -1,6 +1,6 @@
 import $ from "jquery";
 import { describe, expect, it, vi } from "vitest";
-import Screen from "./Screen.js";
+import Screen from "../Screen.js";
 
 describe("Screen", () => {
   it("accepts element id as argument", () => {

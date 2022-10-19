@@ -1,4 +1,4 @@
-import { randomNumber } from "./utilities.js";
+import { randomNumber } from "../utilities.js";
 
 export default class ColorGenerator {
   constructor() {

@@ -1,8 +1,8 @@
 import { describe, expect, it, vi } from "vitest";
-import Game from "./Game.js";
-import Screen from "./Screen.js";
-import GameManager from "./GameManager.js";
-import ScreenManager from "./ScreenManager.js";
+import Game from "../Game.js";
+import Screen from "../Screen.js";
+import GameManager from "../GameManager.js";
+import ScreenManager from "../ScreenManager.js";
 
 describe("Game Manager", () => {
   it("initializes with a new game", () => {

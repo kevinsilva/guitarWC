@@ -1,11 +1,11 @@
 import $ from "jquery";
 window._$ = $;
-import ScreenManager from "./src/ScreenManager.js";
-import StartScreen from "./src/StartScreen.js";
-import AskScreen from "./src/AskScreen.js";
-import AnswerScreen from "./src/AnswerScreen.js";
-import EndScreen from "./src/EndScreen.js";
-import GameManager from "./src/GameManager.js";
+import ScreenManager from "./src/oop/ScreenManager.js";
+import StartScreen from "./src/oop/StartScreen.js";
+import AskScreen from "./src/oop/AskScreen.js";
+import AnswerScreen from "./src/oop/AnswerScreen.js";
+import EndScreen from "./src/oop/EndScreen.js";
+import GameManager from "./src/oop/GameManager.js";
 
 const startScreen = new StartScreen({
   elementID: "#start-screen",

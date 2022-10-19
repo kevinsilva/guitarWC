@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import ColorGenerator from "./ColorGenerator.js";
-import Question from "./Question.js";
+import ColorGenerator from "../ColorGenerator.js";
+import Question from "../Question.js";
 
 describe("Question", () => {
   it("starts with an instance of the color generator", () => {

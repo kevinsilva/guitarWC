@@ -1,7 +1,7 @@
 import $ from "jquery";
 import { describe, expect, it, vi } from "vitest";
 
-import AnswerScreen from "./AnswerScreen.js";
+import AnswerScreen from "../AnswerScreen.js";
 
 describe("Answer Screen", () => {
   it("adds an answer text, based on correct answer validation, to target element", () => {

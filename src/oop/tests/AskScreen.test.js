@@ -1,7 +1,7 @@
 import $ from "jquery";
 import { describe, expect, it, vi } from "vitest";
 
-import AskScreen from "./AskScreen.js";
+import AskScreen from "../AskScreen.js";
 
 describe("Ask Screen", () => {
   it("adds a text question based on the guitar color, to target element", () => {

@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 
-import Screen from "./Screen.js";
-import ScreenManager from "./ScreenManager.js";
+import Screen from "../Screen.js";
+import ScreenManager from "../ScreenManager.js";
 
 describe("Screen Manager", () => {
   const mockElement = vi.fn();

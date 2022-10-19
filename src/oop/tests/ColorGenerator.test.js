@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import ColorGenerator from "./ColorGenerator.js";
+import ColorGenerator from "../ColorGenerator.js";
 
 describe("Color Generator", () => {
   it("it starts with an array of color objects as a property", () => {

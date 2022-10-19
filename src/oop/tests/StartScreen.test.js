@@ -1,7 +1,7 @@
 import $ from "jquery";
 import { describe, expect, it, vi } from "vitest";
 
-import StartScreen from "./StartScreen.js";
+import StartScreen from "../StartScreen.js";
 
 describe("Start Screen", () => {
   it("calls given callback when new game button is clicked", () => {

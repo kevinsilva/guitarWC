@@ -26,13 +26,16 @@ export default class EndScreen extends Screen {
     } else if (this.gameScore <= 80) {
       msg = "you got some chops!";
     } else {
-      const confettiElement = document.getElementById("confetti");
-      const confettiSettings = { target: confettiElement };
-      const confetti = new ConfettiGenerator(confettiSettings);
-
-      confetti.render();
-
       msg = "rgb legend.";
+
+
+      const confettiElement = document.getElementById("confetti");
+      if(confettiElement instanceof HTMLCanvasElement) {
+        const confettiSettings = { target: confettiElement };
+        const confetti = new ConfettiGenerator(confettiSettings) || true;
+  
+        confetti.render();
+      }
     }
 
     $(this.endMessageTxt).text(msg);

@@ -1,4 +1,4 @@
-import { randomNumber } from "./utilities.js";
+import { randomNumber } from "../utilities.js";
 import ColorGenerator from "./ColorGenerator.js";
 
 export default class Question {

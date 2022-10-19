@@ -1,7 +1,7 @@
 import $ from "jquery";
 import { beforeAll, describe, expect, it, vi } from "vitest";
 
-import EndScreen from "./EndScreen.js";
+import EndScreen from "../EndScreen.js";
 
 describe("End Screen", () => {
   describe("Render End Message", () => {
@@ -38,14 +38,14 @@ describe("End Screen", () => {
       expect($("#end-score").text()).toBe("80 points");
     });
 
-    it.skip("renders 'rgb legend.' text, when final game score is between 90 and 100", () => {
+    it("renders 'rgb legend.' text, when final game score is between 90 and 100", () => {
       let input = {
         elementID: "#end-screen",
         endMessageTxtID: "#end-message",
         endScoreTxtID: "#end-score",
         gameScore: 90,
       };
-
+      
       new EndScreen(input);
       expect($("#end-message").text()).toBe("rgb legend.");
       expect($("#end-score").text()).toBe("90 points");
