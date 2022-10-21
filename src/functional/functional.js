@@ -2,24 +2,27 @@ import $ from 'jquery';
 import { randomNumber } from '../utilities.js';
 import ConfettiGenerator from 'confetti-js';
 
+// SCREENS
 const startScreenID = '#start-screen';
 const askScreenID = '#ask-screen';
 const answerScreenID = '#answer-screen';
 const endScreenID = '#end-screen';
-
+// BUTTONS
 const newGameBtnID = '#new-game';
 const answerBtnsID = ['.button-0', '.button-1', '.button-2'];
 const nextQuestionBtnID = '#next-question';
 const restartGameBtnID = '#restart-game';
-
+// TEXTS
 const questionTxtID = '#question';
 const roundTxtID = 'h3.round';
 const answerTxtID = '#answer';
 const pointsTxtID = 'h3.points';
 const endMessageTxtID = '#end-message';
 const endScoreTxtID = '#end-score';
-
+// GUITAR
 const guitarID = 'svg.guitar-body';
+
+const screensArr = [startScreenID, askScreenID, answerScreenID, endScreenID];
 
 function getRandomColors() {
   const colors = [
@@ -145,8 +148,6 @@ function generateQuestions() {
   return questions;
 }
 
-const screensArr = [startScreenID, askScreenID, answerScreenID, endScreenID];
-
 function showOnlyScreen(screenIndex, screensArrID) {
   screensArrID.forEach((screen, index) => {
     screenIndex === index ? $(screen).show() : $(screen).hide();
@@ -156,6 +157,7 @@ function showOnlyScreen(screenIndex, screensArrID) {
 const SCREENS = {
   startScreen: function _renderStartScreen(_, onActionClick) {
     showOnlyScreen(0, screensArr);
+
     $(newGameBtnID).one('click', () => {
       onActionClick();
     });
@@ -165,13 +167,11 @@ const SCREENS = {
     onActionClick
   ) {
     const question = questions[round - 1];
-    console.log(question.answer);
     showOnlyScreen(1, screensArr);
     $(roundTxtID).text(`round ${round} of 10`);
     $(pointsTxtID).text(`${points} points`);
     $(questionTxtID).text(`guess ${question.guitarColor.name}`);
     $(guitarID).css('fill', question.guitarColor.decimal);
-
     $('button').removeClass('correct incorrect');
 
     $(answerBtnsID).each((i, btn) => {
@@ -249,7 +249,7 @@ function init() {
     currentScreen: SCREENS.startScreen,
   };
 
-  function updateState(a) {
+  function updateState(params) {
     switch (state.currentScreen) {
       case SCREENS.startScreen:
         state.currentScreen = SCREENS.askScreen;
@@ -257,7 +257,7 @@ function init() {
 
       case SCREENS.askScreen:
         const question = state.questions[state.round - 1];
-        question.picked = a;
+        question.picked = params;
         state.points += question.answer === question.picked ? 10 : 0;
         state.currentScreen = SCREENS.answerScreen;
         break;
@@ -277,6 +277,7 @@ function init() {
         state.questions = generateQuestions();
         state.currentScreen = SCREENS.askScreen;
         break;
+
       default:
         throw new Error(
           `Invalid state. Unknown screen: ${state.currentScreen}`
