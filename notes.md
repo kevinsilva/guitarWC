@@ -35,6 +35,14 @@ Chamar outra classe
 
 ## Notes
 
+Homepage pode ter tabela de cores, breve explicação de RGB e regras do jogo com botão start.
+
+Regra: temos uma oportunidade para acertar x números de cores.
+Elementos: cores (nome, rgb), pergunta, score, resposta, guitarra
+
+Elementos de cor: gerador de cores
+Pergunta parte do gerador de cor
+
 _vai usar o color generator para seleccionar uma das cores como sendo a resposta correcta
 (com jquery vamos mostrar a resposta no svg)
 vai validar resposta e atribuir pontuacao_
@@ -91,6 +99,7 @@ const $root = $("#app");
         <button>${question.options[0]}</button>
 <button>${question.options[1]}</button>
         <button>${question.options[2]}</button>
+
 </div>
 </div>`
 )
@@ -129,7 +138,7 @@ const message =
 score === 30 ? "AWESOME!" : score <= 10 ? "Lame..." : "Nice";
 $root
 .html(
-` <div id="finish-screen"> <h2>Game Over</h2> <h3>Final score: ${score}</h3> <h4>That was ${message}</h4> <button>Try again?</button> </div> `
+`<div id="finish-screen"> <h2>Game Over</h2> <h3>Final score: ${score}</h3> <h4>That was ${message}</h4> <button>Try again?</button> </div>`
 )
 .find("button")
 .one("click", initGame);
