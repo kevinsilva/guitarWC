@@ -216,8 +216,6 @@ const SCREENS = {
     const confetti = new ConfettiGenerator(confettiSettings);
 
     showOnlyScreen(3, screensArr);
-    $(roundTxtID).text(`round ${round} of 10`);
-    $(pointsTxtID).text(`${points} points`);
 
     let msg = '';
 

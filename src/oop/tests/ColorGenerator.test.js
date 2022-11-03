@@ -1,22 +1,22 @@
-import { describe, expect, it } from "vitest";
-import ColorGenerator from "../ColorGenerator.js";
+import { describe, expect, it } from 'vitest';
+import ColorGenerator from '../ColorGenerator.js';
 
-describe("Color Generator", () => {
-  it("it starts with an array of color objects as a property", () => {
+describe('Color Generator', () => {
+  it('it starts with an array of color objects as a property', () => {
     const colorGenerator = new ColorGenerator();
     const isArray = Array.isArray(colorGenerator.colors);
 
     expect(isArray).toBe(true);
   });
 
-  it("returns a random color from the array of color objects", () => {
+  it('returns a random color from the array of color objects', () => {
     const colorGenerator = new ColorGenerator();
     const randomColor = colorGenerator.getRandomColor();
 
     expect(colorGenerator.colors).toContain(randomColor);
   });
 
-  it("returns a group of three different random color from the array of color objects", () => {
+  it('returns a group of three different random color from the array of color objects', () => {
     const colorGenerator = new ColorGenerator();
     const randomColors = colorGenerator.getColors();
 

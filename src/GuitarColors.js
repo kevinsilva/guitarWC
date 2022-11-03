@@ -1,8 +1,8 @@
-import { randomNumber } from '../utilities.js';
+import { randomNumber } from './utilities';
 
-export default class ColorGenerator {
+export default class GuitarColors {
   constructor() {
-    this.colors = [
+    this._palette = [
       { name: 'White Blonde', decimal: 'rgb(218, 209, 202)' },
       { name: 'Lake Placid Blue', decimal: 'rgb(56, 94, 130)' },
       { name: 'Navy Blue Metallic', decimal: 'rgb(6, 25, 44)' },
@@ -97,21 +97,15 @@ export default class ColorGenerator {
     ];
   }
 
-  getRandomColor() {
-    const colors = [...this.colors];
-    const randomNum = randomNumber(1, this.colors.length);
-
-    return colors[randomNum - 1];
-  }
-
-  getColors() {
+  getRandom() {
+    const colors = [...this._palette];
     const randomColors = [];
 
     while (randomColors.length < 3) {
-      const randomColor = this.getRandomColor();
+      const randomColor = colors[randomNumber(1, colors.length) - 1];
+
       if (!randomColors.includes(randomColor)) randomColors.push(randomColor);
     }
-
     return randomColors;
   }
 }
