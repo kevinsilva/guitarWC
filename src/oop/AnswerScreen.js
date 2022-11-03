@@ -2,11 +2,11 @@ import $ from 'jquery';
 import Screen from './Screen.js';
 
 export default class AnswerScreen extends Screen {
-  constructor (input) {
+  constructor(input) {
     super({
       elementID: input.elementID,
       nextBtn: input.nextQuestionBtn,
-      onNextClick: input.onNextQuestionClick
+      onNextClick: input.onNextQuestionClick,
     });
     this.answerTxt = input.answerTxtID;
     this.isAnswerCorrect = input.isAnswerCorrect;
@@ -18,14 +18,14 @@ export default class AnswerScreen extends Screen {
     this.init();
   }
 
-  _renderAnswerText () {
+  _renderAnswerText() {
     if (this.isAnswerCorrect === undefined) return;
     this.isAnswerCorrect === true
       ? $(this.answerTxt).text('correct')
       : $(this.answerTxt).text('incorrect');
   }
 
-  _renderBtnAnswerStyle () {
+  _renderBtnAnswerStyle() {
     if (!this.guitarColor) return;
 
     const that = this;
@@ -43,13 +43,13 @@ export default class AnswerScreen extends Screen {
     });
   }
 
-  _renderPoints () {
+  _renderPoints() {
     if (!this.pointsTxt) return;
 
     $(this.pointsTxt).text(`${this.points} points`);
   }
 
-  init () {
+  init() {
     this._renderAnswerText();
     this._renderBtnAnswerStyle();
     this._renderPoints();

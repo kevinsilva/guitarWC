@@ -3,11 +3,11 @@ import Screen from './Screen.js';
 import ConfettiGenerator from 'confetti-js';
 
 export default class EndScreen extends Screen {
-  constructor (input) {
+  constructor(input) {
     super({
       elementID: input.elementID,
       nextBtn: input.restartGameBtnID,
-      onNextClick: input.onRestartGameClick
+      onNextClick: input.onRestartGameClick,
     });
     this.endMessageTxt = input.endMessageTxtID;
     this.endScoreTxt = input.endScoreTxtID;
@@ -16,7 +16,7 @@ export default class EndScreen extends Screen {
     this.init();
   }
 
-  _renderEndGameMsg () {
+  _renderEndGameMsg() {
     if (this.gameScore === undefined) return;
 
     let msg = '';
@@ -41,7 +41,7 @@ export default class EndScreen extends Screen {
     $(this.endScoreTxt).text(`${this.gameScore} points`);
   }
 
-  init () {
+  init() {
     this._renderEndGameMsg();
   }
 }

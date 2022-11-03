@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 class AskElements {
-  constructor () {
+  constructor() {
     this.screenID = '#ask-screen';
     this.roundTxtID = 'h3.round';
     this.pointsTxtID = 'h3.points';
@@ -10,18 +10,18 @@ class AskElements {
     this.answerBtnsID = [
       'button.button-0',
       'button.button-1',
-      'button.button-2'
+      'button.button-2',
     ];
   }
 }
 
 class AskScreen {
-  constructor (onActionClick) {
+  constructor(onActionClick) {
     this.el = new AskElements();
     this.onActionClick = onActionClick;
   }
 
-  render (state) {
+  render(state) {
     const question = state._questions[state._round - 1];
 
     $(this.el.roundTxtID).text(`round ${state._round} of 10`);

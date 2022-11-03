@@ -2,10 +2,10 @@ import $ from 'jquery';
 import Screen from './Screen.js';
 
 export default class AskScreen extends Screen {
-  constructor (input) {
+  constructor(input) {
     super({
       elementID: input.elementID,
-      onNextClick: input.onAnswerClick
+      onNextClick: input.onAnswerClick,
     });
     this.questionTxt = input.questionTxtID;
     this.guitarColor = input.guitarColor;
@@ -18,21 +18,21 @@ export default class AskScreen extends Screen {
     this.init();
   }
 
-  _renderQuestion () {
+  _renderQuestion() {
     if (!this.questionTxt) return;
     if (!this.guitarColor) return;
 
     $(this.questionTxt).text('guess ' + this.guitarColor.name);
   }
 
-  _renderGuitarColor () {
+  _renderGuitarColor() {
     if (!this.guitar) return;
     if (!this.guitarColor) return;
 
     $(this.guitar).css('fill', this.guitarColor.decimal);
   }
 
-  _renderAnswerBtns () {
+  _renderAnswerBtns() {
     if (!this.answerBtns || !this.generatedColors) return;
 
     for (const [index, entry] of this.generatedColors.entries()) {
@@ -40,7 +40,7 @@ export default class AskScreen extends Screen {
     }
   }
 
-  _setAnswerBtnsEvents () {
+  _setAnswerBtnsEvents() {
     if (!this.answerBtns) return;
 
     for (const btn of this.answerBtns) {
@@ -58,13 +58,13 @@ export default class AskScreen extends Screen {
     }
   }
 
-  _renderRound () {
+  _renderRound() {
     if (!this.roundTxt) return;
 
     $(this.roundTxt).text(`round ${this.round} of 10`);
   }
 
-  init () {
+  init() {
     this._renderQuestion();
     this._renderGuitarColor();
     this._renderAnswerBtns();

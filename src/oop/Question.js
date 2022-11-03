@@ -2,16 +2,16 @@ import { randomNumber } from '../utilities.js';
 import ColorGenerator from './ColorGenerator.js';
 
 export default class Question {
-  constructor () {
+  constructor() {
     this.colorGenerator = new ColorGenerator();
   }
 
-  getOptions () {
+  getOptions() {
     this.options = this.colorGenerator.getColors();
     return this.options;
   }
 
-  getCorrectAnswer () {
+  getCorrectAnswer() {
     if (!this.options) return null;
 
     const random = randomNumber(1, 3);

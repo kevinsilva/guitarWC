@@ -6,12 +6,12 @@ import { AnswerScreen } from './AnswerScreen';
 import { EndScreen } from './EndScreen';
 
 export default class Game {
-  constructor () {
+  constructor() {
     this.state = null;
     this.screens = null;
   }
 
-  showOnly (screenIndex) {
+  showOnly(screenIndex) {
     this.screens.forEach((screen, index) => {
       screenIndex === index
         ? $(screen.el.screenID).show()
@@ -19,7 +19,7 @@ export default class Game {
     });
   }
 
-  renderScreen (screenIndex) {
+  renderScreen(screenIndex) {
     this.screens.forEach((screen, index) => {
       if (screenIndex === index) {
         $(screen.el.screenID).show();
@@ -30,12 +30,12 @@ export default class Game {
     });
   }
 
-  updateStart () {
+  updateStart() {
     this.screens[1].render(this.state);
     this.showOnly(1);
   }
 
-  updateAsk (params) {
+  updateAsk(params) {
     const question = this.state._questions[this.state._round - 1];
 
     question._picked = params;
@@ -44,7 +44,7 @@ export default class Game {
     this.showOnly(2);
   }
 
-  updateAnswer () {
+  updateAnswer() {
     if (this.state._round === this.state._questions.length) {
       this.screens[3].render(this.state);
       this.showOnly(3);
@@ -55,17 +55,17 @@ export default class Game {
     }
   }
 
-  updateEnd () {
+  updateEnd() {
     this.init();
   }
 
-  init () {
+  init() {
     this.state = new State();
     this.screens = [
       new StartScreen(this.updateStart.bind(this)),
       new AskScreen(this.updateAsk.bind(this)),
       new AnswerScreen(this.updateAnswer.bind(this)),
-      new EndScreen(this.updateEnd.bind(this))
+      new EndScreen(this.updateEnd.bind(this)),
     ];
     this.showOnly(0);
     // this.state.currentScreen = this.screens[0].render();

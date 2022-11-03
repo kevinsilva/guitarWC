@@ -2,7 +2,7 @@ import $ from 'jquery';
 import ConfettiGenerator from 'confetti-js';
 
 class EndElements {
-  constructor () {
+  constructor() {
     this.screenID = '#end-screen';
     // this.roundTxtID = 'h3.round';
     // this.pointsTxtID = 'h3.points';
@@ -13,17 +13,19 @@ class EndElements {
 }
 
 class EndScreen {
-  constructor (onActionClick) {
+  constructor(onActionClick) {
     this.el = new EndElements();
     this.onActionClick = onActionClick;
   }
 
-  render (state) {
+  render(state) {
     let confetti;
     const confettiElement = document.getElementById('confetti');
     const confettiSettings = { target: confettiElement };
 
-    if (confettiElement instanceof HTMLCanvasElement) { confetti = new ConfettiGenerator(confettiSettings) || true; }
+    if (confettiElement instanceof HTMLCanvasElement) {
+      confetti = new ConfettiGenerator(confettiSettings) || true;
+    }
 
     let msg = '';
 

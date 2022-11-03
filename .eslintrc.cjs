@@ -1,17 +1,16 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
-  extends: 'standard',
-  overrides: [
-  ],
+  extends: ['standard', 'prettier'],
+  overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
   },
   ignorePatterns: ['node_modules', '*.test.js'],
   rules: {
-    semi: [2, 'always']
-  }
+    semi: [2, 'always'],
+  },
 };

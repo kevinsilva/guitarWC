@@ -1,11 +1,11 @@
 import Question from './Question.js';
 
 export default class Game {
-  constructor () {
+  constructor() {
     this.points = 0;
   }
 
-  loadQuestions () {
+  loadQuestions() {
     const questions = {};
     const question = new Question();
     let counter = 1;
@@ -13,7 +13,7 @@ export default class Game {
     while (counter <= 10) {
       questions[counter] = {
         options: question.getOptions(),
-        answer: question.getCorrectAnswer()
+        answer: question.getCorrectAnswer(),
       };
       counter++;
     }
@@ -21,7 +21,7 @@ export default class Game {
     this.points = 0;
   }
 
-  addPoints (answer) {
+  addPoints(answer) {
     if (this.points >= 100) return;
     if (answer) this.points += 10;
   }

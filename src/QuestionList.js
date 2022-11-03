@@ -1,11 +1,11 @@
 import Question from './Question';
 
 export default class QuestionList {
-  constructor () {
+  constructor() {
     this._questions = this.get();
   }
 
-  get () {
+  get() {
     if (this._questions) return this._questions;
 
     const list = [];

@@ -24,7 +24,7 @@ const guitarID = 'svg.guitar-body';
 
 const screensArr = [startScreenID, askScreenID, answerScreenID, endScreenID];
 
-function getRandomColors () {
+function getRandomColors() {
   const colors = [
     { name: 'White Blonde', decimal: 'rgb(218, 209, 202)' },
     { name: 'Lake Placid Blue', decimal: 'rgb(56, 94, 130)' },
@@ -116,7 +116,7 @@ function getRandomColors () {
     { name: 'Vintage Cherry', decimal: 'rgb(150, 34, 27)' },
     { name: 'Ebony', decimal: 'rgb(26, 26, 24)' },
     { name: 'Olive Drab', decimal: 'rgb(57, 59, 31)' },
-    { name: 'Cherry Red', decimal: 'rgb(121, 0, 18)' }
+    { name: 'Cherry Red', decimal: 'rgb(121, 0, 18)' },
   ];
   const palette = [...colors];
   const randomColors = [];
@@ -129,7 +129,7 @@ function getRandomColors () {
   return randomColors;
 }
 
-function generateQuestions () {
+function generateQuestions() {
   const questions = [];
 
   while (questions.length < 10) {
@@ -138,7 +138,7 @@ function generateQuestions () {
     const question = {
       guitarColor: colors[random - 1],
       options: [...colors],
-      picked: -1
+      picked: -1,
     };
     question.answer = question.options.findIndex(
       (option) => option === question.guitarColor
@@ -148,21 +148,21 @@ function generateQuestions () {
   return questions;
 }
 
-function showOnlyScreen (screenIndex, screensArrID) {
+function showOnlyScreen(screenIndex, screensArrID) {
   screensArrID.forEach((screen, index) => {
     screenIndex === index ? $(screen).show() : $(screen).hide();
   });
 }
 
 const SCREENS = {
-  startScreen: function _renderStartScreen (_, onActionClick) {
+  startScreen: function _renderStartScreen(_, onActionClick) {
     showOnlyScreen(0, screensArr);
 
     $(newGameBtnID).one('click', () => {
       onActionClick();
     });
   },
-  askScreen: function _renderAskScreen (
+  askScreen: function _renderAskScreen(
     { questions, round, points },
     onActionClick
   ) {
@@ -184,7 +184,7 @@ const SCREENS = {
       });
     });
   },
-  answerScreen: function _renderAnswerScreen (
+  answerScreen: function _renderAnswerScreen(
     { questions, round, points },
     onActionClick
   ) {
@@ -210,7 +210,7 @@ const SCREENS = {
       onActionClick();
     });
   },
-  endScreen: function _renderEndScreen ({ points, round }, onActionClick) {
+  endScreen: function _renderEndScreen({ points, round }, onActionClick) {
     const confettiElement = document.getElementById('confetti');
     const confettiSettings = { target: confettiElement };
     const confetti = new ConfettiGenerator(confettiSettings);
@@ -236,18 +236,18 @@ const SCREENS = {
       confetti.clear();
       onActionClick();
     });
-  }
+  },
 };
 
-function init () {
+function init() {
   const state = {
     round: 1,
     points: 0,
     questions: generateQuestions(),
-    currentScreen: SCREENS.startScreen
+    currentScreen: SCREENS.startScreen,
   };
 
-  function updateState (params) {
+  function updateState(params) {
     switch (state.currentScreen) {
       case SCREENS.startScreen:
         state.currentScreen = SCREENS.askScreen;
