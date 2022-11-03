@@ -1,7 +1,7 @@
 import { randomNumber } from './utilities';
 
 export default class GuitarColors {
-  constructor() {
+  constructor () {
     this._palette = [
       { name: 'White Blonde', decimal: 'rgb(218, 209, 202)' },
       { name: 'Lake Placid Blue', decimal: 'rgb(56, 94, 130)' },
@@ -93,11 +93,11 @@ export default class GuitarColors {
       { name: 'Vintage Cherry', decimal: 'rgb(150, 34, 27)' },
       { name: 'Ebony', decimal: 'rgb(26, 26, 24)' },
       { name: 'Olive Drab', decimal: 'rgb(57, 59, 31)' },
-      { name: 'Cherry Red', decimal: 'rgb(121, 0, 18)' },
+      { name: 'Cherry Red', decimal: 'rgb(121, 0, 18)' }
     ];
   }
 
-  getRandom() {
+  getRandom () {
     const colors = [...this._palette];
     const randomColors = [];
 

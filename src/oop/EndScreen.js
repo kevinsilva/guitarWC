@@ -1,13 +1,13 @@
-import $ from "jquery";
-import Screen from "./Screen.js";
-import ConfettiGenerator from "confetti-js";
+import $ from 'jquery';
+import Screen from './Screen.js';
+import ConfettiGenerator from 'confetti-js';
 
 export default class EndScreen extends Screen {
-  constructor(input) {
+  constructor (input) {
     super({
       elementID: input.elementID,
       nextBtn: input.restartGameBtnID,
-      onNextClick: input.onRestartGameClick,
+      onNextClick: input.onRestartGameClick
     });
     this.endMessageTxt = input.endMessageTxtID;
     this.endScoreTxt = input.endScoreTxtID;
@@ -16,24 +16,23 @@ export default class EndScreen extends Screen {
     this.init();
   }
 
-  _renderEndGameMsg() {
+  _renderEndGameMsg () {
     if (this.gameScore === undefined) return;
 
-    let msg = "";
+    let msg = '';
 
     if (this.gameScore <= 40) {
-      msg = "need more practice...";
+      msg = 'need more practice...';
     } else if (this.gameScore <= 80) {
-      msg = "you got some chops!";
+      msg = 'you got some chops!';
     } else {
-      msg = "rgb legend.";
+      msg = 'rgb legend.';
 
-
-      const confettiElement = document.getElementById("confetti");
-      if(confettiElement instanceof HTMLCanvasElement) {
+      const confettiElement = document.getElementById('confetti');
+      if (confettiElement instanceof HTMLCanvasElement) {
         const confettiSettings = { target: confettiElement };
         const confetti = new ConfettiGenerator(confettiSettings) || true;
-  
+
         confetti.render();
       }
     }
@@ -42,7 +41,7 @@ export default class EndScreen extends Screen {
     $(this.endScoreTxt).text(`${this.gameScore} points`);
   }
 
-  init() {
+  init () {
     this._renderEndGameMsg();
   }
 }

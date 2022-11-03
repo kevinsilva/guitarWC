@@ -1,26 +1,26 @@
 import $ from 'jquery';
 
 class AnswerElements {
-  constructor() {
+  constructor () {
     this.screenID = '#answer-screen';
     this.pointsTxtID = 'h3.points';
     this.answerTxtID = '#answer';
     this.answerBtnsID = [
       'button.button-0',
       'button.button-1',
-      'button.button-2',
+      'button.button-2'
     ];
     this.nextQuestionBtnID = '#next-question';
   }
 }
 
 class AnswerScreen {
-  constructor(onActionClick) {
+  constructor (onActionClick) {
     this.el = new AnswerElements();
     this.onActionClick = onActionClick;
   }
 
-  render(state) {
+  render (state) {
     const question = state._questions[state._round - 1];
     const picked = question._picked;
     const answer = question._answer;

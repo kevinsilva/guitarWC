@@ -1,12 +1,12 @@
-import $ from "jquery";
-import Screen from "./Screen.js";
+import $ from 'jquery';
+import Screen from './Screen.js';
 
 export default class AnswerScreen extends Screen {
-  constructor(input) {
+  constructor (input) {
     super({
       elementID: input.elementID,
       nextBtn: input.nextQuestionBtn,
-      onNextClick: input.onNextQuestionClick,
+      onNextClick: input.onNextQuestionClick
     });
     this.answerTxt = input.answerTxtID;
     this.isAnswerCorrect = input.isAnswerCorrect;
@@ -18,38 +18,38 @@ export default class AnswerScreen extends Screen {
     this.init();
   }
 
-  _renderAnswerText() {
+  _renderAnswerText () {
     if (this.isAnswerCorrect === undefined) return;
     this.isAnswerCorrect === true
-      ? $(this.answerTxt).text("correct")
-      : $(this.answerTxt).text("incorrect");
+      ? $(this.answerTxt).text('correct')
+      : $(this.answerTxt).text('incorrect');
   }
 
-  _renderBtnAnswerStyle() {
+  _renderBtnAnswerStyle () {
     if (!this.guitarColor) return;
 
     const that = this;
-    $(this.element + " " + "button:not(#next-question)").each(function (
+    $(this.element + ' ' + 'button:not(#next-question)').each(function (
       _,
       btnEl
     ) {
       const $btn = $(btnEl);
 
       if ($btn.text() === that.guitarColor.decimal) {
-        $btn.addClass("correct");
+        $btn.addClass('correct');
       } else {
-        $btn.addClass("incorrect");
+        $btn.addClass('incorrect');
       }
     });
   }
 
-  _renderPoints() {
+  _renderPoints () {
     if (!this.pointsTxt) return;
 
     $(this.pointsTxt).text(`${this.points} points`);
   }
 
-  init() {
+  init () {
     this._renderAnswerText();
     this._renderBtnAnswerStyle();
     this._renderPoints();
