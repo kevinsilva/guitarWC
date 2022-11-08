@@ -30,38 +30,64 @@ describe('Answer Screen', () => {
     expect($(screen.el.answerTxtID).text()).toEqual('correct');
   });
 
+  // it('adds correct or incorrect classes to correspondent button elements', () => {
+  //   document.body.innerHTML = `
+  //   <div id='answer-screen'>
+  //   <button class='button-0'>rgb(23, 21, 28)</button>
+  //   <button class='button-1'>rgb(81, 93, 69)</button>
+  //   <button class='button-2'>rgb(12, 43, 115)</button>
+  //   </div>
+  //   `;
+
+  //   const state = {
+  //     _round: 1,
+  //     _points: 0,
+  //     _questions: [
+  //       {
+  //         _options: [
+  //           { name: 'Midnight Blue', decimal: 'rgb(23, 21, 28)' },
+  //           { name: 'Antique Olive', decimal: 'rgb(81, 93, 69)' },
+  //           { name: 'Metallic Blue', decimal: 'rgb(12, 43, 115)' },
+  //         ],
+  //         _guitarColor: { name: 'Antique Olive', decimal: 'rgb(81, 93, 69)' },
+  //         _answer: 1,
+  //         _picked: 1,
+  //       },
+  //     ],
+  //   };
+
+  //   const screen = new AnswerScreen();
+  //   screen.render(state);
+
+  //   expect($('button.button-0').hasClass('incorrect')).toEqual(true);
+  //   expect($('button.button-1').hasClass('correct')).toEqual(true);
+  //   expect($('button.button-2').hasClass('incorrect')).toEqual(true);
+  // });
+
   it('adds correct or incorrect classes to correspondent button elements', () => {
     document.body.innerHTML = `
     <div id='answer-screen'>
-    <button class='button-0'>rgb(23, 21, 28)</button>
-    <button class='button-1'>rgb(81, 93, 69)</button>
-    <button class='button-2'>rgb(12, 43, 115)</button>
+    <button class='button-0'></button>
+    <button class='button-1'></button>
+    <button class='button-2'></button>
     </div>
     `;
 
-    const state = {
-      _round: 1,
-      _points: 0,
-      _questions: [
-        {
-          _options: [
-            { name: 'Midnight Blue', decimal: 'rgb(23, 21, 28)' },
-            { name: 'Antique Olive', decimal: 'rgb(81, 93, 69)' },
-            { name: 'Metallic Blue', decimal: 'rgb(12, 43, 115)' },
-          ],
-          _guitarColor: { name: 'Antique Olive', decimal: 'rgb(81, 93, 69)' },
-          _answer: 1,
-          _picked: 1,
-        },
-      ],
-    };
-
     const screen = new AnswerScreen();
-    screen.render(state);
+    const state = new State();
+    const answer = state.getCurrentQuestion().getAnswerIndex();
 
-    expect($('button.button-0').hasClass('incorrect')).toEqual(true);
-    expect($('button.button-1').hasClass('correct')).toEqual(true);
-    expect($('button.button-2').hasClass('incorrect')).toEqual(true);
+    $(`button.button-0`).text(state.getCurrentQuestion().getOptions()[0].decimal);
+    $(`button.button-1`).text(state.getCurrentQuestion().getOptions()[1].decimal);
+    $(`button.button-2`).text(state.getCurrentQuestion().getOptions()[2].decimal);
+
+    state.getCurrentQuestion().setPicked(answer);
+    screen.render(state);
+    const button = $(`button.button-${answer}`);
+
+    expect((button).hasClass('correct')).toEqual(true);
+    expect(button.siblings().hasClass('incorrect')).toEqual(true);
+  
   });
 
   it('when next button is clicked, it removes class selected from buttons and calls cb', () => {

@@ -23,9 +23,9 @@ describe('Ask Screen', () => {
 
     const ask = new AskScreen();
     const state = new State();
-    const guitarName = state._questions[0]._guitarColor.name;
-    const guitarColor = state._questions[0]._guitarColor.decimal;
-    const option_0 = state._questions[0]._options[0].decimal;
+    const guitarName = state.getCurrentQuestion().getGuitarColor().name;
+    const guitarColor = state.getCurrentQuestion().getGuitarColor().decimal;
+    const option_0 = state.getQuestions()[0].getOptions()[0].decimal;
     ask.render(state);
 
     expect($(ask.el.roundTxtID).text()).toEqual('round 1 of 10');

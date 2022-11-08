@@ -5,14 +5,16 @@ export default class Question {
   constructor() {
     this._options = this.getOptions();
     this._guitarColor = this.getGuitarColor();
-    this._answer = this.getAnswer();
+    this._answer = this.getAnswerIndex();
     this._picked = -1;
   }
 
   getOptions() {
     if (this._options) return this._options;
-    const colors = new GuitarColors();
-    return colors.getRandom();
+    // utilizaçào excessiva de memória: cria um array de +90 cores de cada vez que é instanciado.
+    // const colors = new GuitarColors();
+    // return colors.getRandom();
+    return GuitarColors.getRandom();
   }
 
   getGuitarColor() {
@@ -20,7 +22,7 @@ export default class Question {
     return this._options[randomNumber(1, 3) - 1];
   }
 
-  getAnswer() {
+  getAnswerIndex() {
     if (!isNaN(this._answer)) return this._answer;
     return this._options.findIndex((option) => option === this._guitarColor);
   }

@@ -11,13 +11,16 @@ describe('Game', () => {
   it('initializes with the state and screens set to null', () => {
     const game = new Game();
 
-    expect(game._state).toEqual(null);
-    expect(game._screens).toEqual(null);
+    expect(game.getState()).toEqual(null);
+    expect(game.getScreens()).toEqual(null);
   });
 
   it('renders selected screen index and calls render method', () => {
     document.body.innerHTML = `
     <div id='start-screen'></div>
+    <div id='ask-screen'></div>
+    <div id='answer-screen'></div>
+    <div id='end-screen'></div>
     `;
 
     const game = new Game();
@@ -26,16 +29,23 @@ describe('Game', () => {
     const renderSpy = vi.fn();
     const showSpy = vi.fn();
     const hideSpy = vi.fn();
+    const screen0 = $(game.getScreens()[0].el.screenID);
+    const screen1 = $(game.getScreens()[1].el.screenID);
+    const screen2 = $(game.getScreens()[2].el.screenID);
+    const screen3 = $(game.getScreens()[3].el.screenID);
 
-    game._screens[0].render = renderSpy;
+    
+    
+    game.getScreens()[2].render = renderSpy;
     $.fn.show = showSpy;
     $.fn.hide = hideSpy;
+    
 
-    game.renderScreen(0);
+    game.renderScreen(2);
 
     expect(renderSpy).toHaveBeenCalled();
-    expect(showSpy).toHaveBeenCalled();
-    expect(hideSpy).toHaveBeenCalled();
+    expect(showSpy).toHaveBeenCalledTimes(1);
+    expect(hideSpy).toHaveBeenCalledTimes(3);
   });
 
   it('assigns new instances to state and screens when init is called', () => {
@@ -43,11 +53,11 @@ describe('Game', () => {
     game.renderScreen = vi.fn();
     game.init();
 
-    expect(game._state instanceof State).toEqual(true);
-    expect(game._screens[0] instanceof StartScreen).toEqual(true);
-    expect(game._screens[1] instanceof AskScreen).toEqual(true);
-    expect(game._screens[2] instanceof AnswerScreen).toEqual(true);
-    expect(game._screens[3] instanceof EndScreen).toEqual(true);
+    expect(game.getState() instanceof State).toEqual(true);
+    expect(game.getScreens()[0] instanceof StartScreen).toEqual(true);
+    expect(game.getScreens()[1] instanceof AskScreen).toEqual(true);
+    expect(game.getScreens()[2] instanceof AnswerScreen).toEqual(true);
+    expect(game.getScreens()[3] instanceof EndScreen).toEqual(true);
     expect(game.renderScreen).toHaveBeenCalled();
   });
 
@@ -64,11 +74,11 @@ describe('Game', () => {
     const game = new Game();
     game.init();
     game.renderScreen = vi.fn();
-    game._state._questions[0]._answer = 1;
-    game.updateAsk(1);
+    const answer = game.getState().getCurrentQuestion().getAnswerIndex();
+    game.updateAsk(answer);
 
-    expect(game._state._questions[0]._picked).toEqual(1);
-    expect(game._state._points).toEqual(10);
+    expect(game.getState().getCurrentQuestion().getPicked()).toEqual(answer);
+    expect(game.getState().getPoints()).toEqual(10);
     expect(game.renderScreen).toHaveBeenCalledWith(2);
   });
 
@@ -79,7 +89,11 @@ describe('Game', () => {
     game.updateAnswer();
 
     expect(game.renderScreen).toHaveBeenCalledWith(1);
-    game._state._round = 10;
+    
+    while (game.getState().getRound() < 10) {
+      game.getState().addRound();
+    }
+
     game.updateAnswer();
     expect(game.renderScreen).toHaveBeenCalledWith(3);
   });
@@ -87,11 +101,15 @@ describe('Game', () => {
   it('it resets state and renders askscreen when update end is called', () => {
     const game = new Game();
     game.init();
-    game._state._round = 10;
+
+    while (game.getState().getRound() < 10) {
+      game.getState().addRound();
+    }
+
     game.renderScreen = vi.fn();
     game.updateEnd();
 
-    expect(game._state._round).toEqual(1);
+    expect(game.getState().getRound()).toEqual(1);
     expect(game.renderScreen).toHaveBeenCalledWith(1);
   });
 });

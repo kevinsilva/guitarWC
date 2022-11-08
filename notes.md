@@ -215,3 +215,30 @@ state.currentScreen({ ...state }, updateState);
 }
 
 initGame();
+
+
+he start stage renders the static elements and adds event listener for the game to begin
+the ask stage renders both static and dynamic elements: round, points, the question, the color, the options, and listens to click option. Computes the points
+the annswer displays the if its correct, the correct answer, and the determines if it is on final round if it is, it shows the end message with final score. 
+
+Vite development environment and bundle for production
+Vitest
+Eslint Prettier
+
+There are four stages of the game: the start stage, the asking stage, the answer stage, and the end stage. Each stage can have different elements displayed and different business logic. 
+
+
+
+After determining the general rules for this game, the initial approach was to define all the elements and think about the separation of concerns. There was a clear difference between the rendering of the elements and the business logic of the game. Since each stage of the game demanded different 
+
+This project explores both a functional and an object oriented programming approach.
+After determining the rules for the game 
+
+game divided by states - start, ask, answer, end
+screens - render elements
+game - adds points, decides screen
+guitarcolor - generates 3 random different colors
+question - adds random guitarcolors and decides guitar
+list - adds 10 questions
+
+difference between screens and state

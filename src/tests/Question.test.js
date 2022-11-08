@@ -24,9 +24,9 @@ describe('Question', () => {
 
   it('returns the index position of the guitar color in the option colors', () => {
     const question = new Question();
-    const answer = question.getAnswer();
+    const answer = question.getAnswerIndex();
 
-    expect(question._options[answer]).toEqual(question.getGuitarColor());
+    expect(question.getOptions()[answer]).toEqual(question.getGuitarColor());
   });
 
   it('sets a value between 0 and 3 inclusive as picked property', () => {

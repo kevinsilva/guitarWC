@@ -20,29 +20,39 @@ class AnswerScreen {
     this.onActionClick = onActionClick;
   }
 
+  // render(state) {
+  //   const question = state._questions[state._round - 1];
+
+  //   $(this.el.pointsTxtID).text(`${state._points} points`);
+  //   $(this.el.answerTxtID).text(`${question._picked === question._answer ? 'correct' : 'incorrect'}`);
+
+  //   $(this.el.answerBtnsID).each((_, btn) => {
+  //     if ($(`${this.el.screenID} ${btn}`).text() === question._guitarColor.decimal) {
+  //       $(`${this.el.screenID} ${btn}`).addClass('correct');
+  //     } else {
+  //       $(`${this.el.screenID} ${btn}`).addClass('incorrect');
+  //     }
+  //   });
+
+  //   $(this.el.nextQuestionBtnID).one('click', () => {
+  //     $('button').removeClass('selected');
+  //     this.onActionClick();
+  //   });
+  // }
+
   render(state) {
-    const question = state._questions[state._round - 1];
-    const picked = question._picked;
-    const answer = question._answer;
-    const pointsTxt = this.el.pointsTxtID;
-    const answerTxt = this.el.answerTxtID;
-    const answerBtn = this.el.answerBtnsID;
-    const screen = this.el.screenID;
-    const guitarColor = question._guitarColor.decimal;
-    const nextBtn = this.el.nextQuestionBtnID;
+    $(this.el.pointsTxtID).text(`${state.getPoints()} points`);
+    $(this.el.answerTxtID).text(`${state.getCurrentQuestion().getPicked() === state.getCurrentQuestion().getAnswerIndex() ? 'correct' : 'incorrect'}`);
 
-    $(pointsTxt).text(`${state._points} points`);
-    $(answerTxt).text(`${picked === answer ? 'correct' : 'incorrect'}`);
-
-    $(answerBtn).each((_, btn) => {
-      if ($(`${screen} ${btn}`).text() === guitarColor) {
-        $(`${screen} ${btn}`).addClass('correct');
+    $(this.el.answerBtnsID).each((_, btn) => {
+      if ($(`${this.el.screenID} ${btn}`).text() === state.getCurrentQuestion().getGuitarColor().decimal) {
+        $(`${this.el.screenID} ${btn}`).addClass('correct');
       } else {
-        $(`${screen} ${btn}`).addClass('incorrect');
+        $(`${this.el.screenID} ${btn}`).addClass('incorrect');
       }
     });
 
-    $(nextBtn).one('click', () => {
+    $(this.el.nextQuestionBtnID).one('click', () => {
       $('button').removeClass('selected');
       this.onActionClick();
     });
