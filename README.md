@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<a href="">[![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-success?style=flat-square&logo=codesandbox)](https://codesandbox.io/p/github/kevinsilva/recursive-calculator/csb-recursive?file=%2FREADME.md)</a>
+<a href="">[![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-success?style=flat-square&logo=codesandbox)](https://codesandbox.io/p/github/kevinsilva/guitarWC/csb-guitarWC?file=%2FREADME.md)</a>
 
 </div>
 
