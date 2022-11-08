@@ -82,7 +82,7 @@ class AskElements {
 To install the component, clone repository, change into directory on the terminal and install with npm.
 
 ```bash
-git clone https://github.com/kevinsilva/
+git clone https://github.com/kevinsilva/guitarWC
 cd guitarWC
 npm install
 ```
