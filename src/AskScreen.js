@@ -21,26 +21,6 @@ class AskScreen {
     this.onActionClick = onActionClick;
   }
 
-  // render(state) {
-  //   const question = state._questions[state._round - 1];
-
-  //   $(this.el.roundTxtID).text(`round ${state._round} of 10`);
-  //   $(this.el.pointsTxtID).text(`${state._points} points`);
-  //   $(this.el.questionTxtID).text(`guess ${question._guitarColor.name}`);
-  //   $(this.el.guitarID).css('fill', question._guitarColor.decimal);
-  //   $('button').removeClass('correct incorrect');
-
-  //   $(this.el.answerBtnsID).each((i, btn) => {
-  //     $(btn).text(question._options[i].decimal);
-  //     $(btn).one('click', () => {
-  //       if ($(btn).hasClass('selected')) return;
-  //       if ($(btn).siblings().hasClass('selected')) return;
-  //       $(btn).addClass('selected');
-  //       this.onActionClick(i);
-  //     });
-  //   });
-  // }
-
   render(state) {
 
     $(this.el.roundTxtID).text(`round ${state.getRound()} of 10`);

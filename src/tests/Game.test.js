@@ -29,11 +29,6 @@ describe('Game', () => {
     const renderSpy = vi.fn();
     const showSpy = vi.fn();
     const hideSpy = vi.fn();
-    const screen0 = $(game.getScreens()[0].el.screenID);
-    const screen1 = $(game.getScreens()[1].el.screenID);
-    const screen2 = $(game.getScreens()[2].el.screenID);
-    const screen3 = $(game.getScreens()[3].el.screenID);
-
     
     
     game.getScreens()[2].render = renderSpy;

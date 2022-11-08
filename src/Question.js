@@ -11,9 +11,6 @@ export default class Question {
 
   getOptions() {
     if (this._options) return this._options;
-    // utilizaçào excessiva de memória: cria um array de +90 cores de cada vez que é instanciado.
-    // const colors = new GuitarColors();
-    // return colors.getRandom();
     return GuitarColors.getRandom();
   }
 

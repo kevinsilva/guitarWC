@@ -6,13 +6,12 @@ describe('Question', () => {
   it('returns three different colors from the GuitarColors class', () => {
     const question = new Question();
     const options = question.getOptions();
-    const guitarColors = new GuitarColors();
-
+    
     expect(options.length).toEqual(3);
     expect(Array.isArray(options)).toEqual(true);
-    expect(guitarColors._palette).toContainEqual(options[0]);
-    expect(guitarColors._palette).toContainEqual(options[1]);
-    expect(guitarColors._palette).toContainEqual(options[2]);
+    expect(GuitarColors.palette).toContainEqual(options[0]);
+    expect(GuitarColors.palette).toContainEqual(options[1]);
+    expect(GuitarColors.palette).toContainEqual(options[2]);
   });
 
   it('returns one of the option colors as the guitar color', () => {

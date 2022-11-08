@@ -242,3 +242,9 @@ question - adds random guitarcolors and decides guitar
 list - adds 10 questions
 
 difference between screens and state
+
+    // if (typeof position !== "number") return; // se o codigo for chamado com arg sem ser numero, nao dá erro nenhum e é dificil perceber pq app nao funciona. É melhor deixar o error explodir na cara do dev!
+
+        // utilizaçào excessiva de memória: cria um array de +90 cores de cada vez que é instanciado.
+    // const colors = new GuitarColors();
+    // return colors.getRandom();

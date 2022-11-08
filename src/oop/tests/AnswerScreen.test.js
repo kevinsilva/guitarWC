@@ -96,24 +96,6 @@ describe('Answer Screen', () => {
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
-  // action when where / on
-  // calls the givben cb function when next question button is clicked
-  // it("sets a click event listener on the next question button and calls callback function", () => {
-  //   document.body.innerHTML =
-  //     '<button id="next-question">next question</button>';
-
-  //   const input = {
-  //     elementID: "#game-screen",
-  //     nextQuestionBtn: "#next-question",
-  //     onNextQuestionClick: vi.fn(),
-  //   };
-
-  //   const answerScreen = new AnswerScreen(input);
-  //   $("#next-question").trigger("click");
-
-  //   expect(answerScreen.onNextQuestionClick).toHaveBeenCalled();
-  // });
-
   it('adds the current score to target element', () => {
     document.body.innerHTML =
       '<div id="end-screen">' + '<h2 class="points"></h2>' + '</div>';

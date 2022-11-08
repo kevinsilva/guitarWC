@@ -30,20 +30,5 @@ describe('Question', () => {
     expect(question.options).toContain(answer);
   });
 
-  // it("returns true if argument color matches correct answer, false otherwise", () => {
-  //   const question = new Question();
-  //   question.getOptions();
-  //   const answer = question.getCorrectAnswer();
-
-  //   const correct = question.checkAnswer(answer.decimal);
-  //   const incorrect = question.checkAnswer("rgb(1210, 9900, 1008)");
-
-  //   expect(correct).toEqual(true);
-  //   expect(incorrect).toEqual(false);
-  // });
 });
-// question.getAnswer() // color
-// question.getOptions() // array 3 colors includes color
-// question.isCorrect(color) // true
 
-// AskScreen.renderQuestion(question)
