@@ -748,6 +748,10 @@ video {
   line-height: 1.4rem;
 }
 
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
 .text-zinc-900 {
   --tw-text-opacity: 1;
   color: rgb(24 24 27 / var(--tw-text-opacity));
