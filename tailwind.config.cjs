@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        logo: ['Impact'],
+        logo: ['Anton'],
       },
     },
   },

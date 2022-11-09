@@ -457,53 +457,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-::-webkit-backdrop {
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
-  --tw-scroll-snap-strictness: proximity;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
-  --tw-ring-offset-width: 0px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / 0.5);
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-}
-
 ::backdrop {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -700,7 +653,7 @@ video {
 }
 
 .font-logo {
-  font-family: Impact;
+  font-family: Anton;
 }
 
 .font-serif {
@@ -870,9 +823,9 @@ video {
   top: .65rem;
 }
 
-.after\:left-\[4\.8rem\]::after {
+.after\:left-\[4rem\]::after {
   content: var(--tw-content);
-  left: 4.8rem;
+  left: 4rem;
 }
 
 .after\:top-\[2rem\]::after {
@@ -880,14 +833,29 @@ video {
   top: 2rem;
 }
 
-.after\:left-\[2\.9rem\]::after {
+.after\:left-\[2\.2rem\]::after {
   content: var(--tw-content);
-  left: 2.9rem;
+  left: 2.2rem;
 }
 
 .after\:top-\[3\.45rem\]::after {
   content: var(--tw-content);
   top: 3.45rem;
+}
+
+.after\:left-\[4\.5rem\]::after {
+  content: var(--tw-content);
+  left: 4.5rem;
+}
+
+.after\:left-\[4\.8rem\]::after {
+  content: var(--tw-content);
+  left: 4.8rem;
+}
+
+.after\:left-\[2\.9rem\]::after {
+  content: var(--tw-content);
+  left: 2.9rem;
 }
 
 .after\:left-\[5\.2rem\]::after {
@@ -1036,9 +1004,9 @@ video {
     top: .8rem;
   }
 
-  .md\:after\:left-\[6rem\]::after {
+  .md\:after\:left-\[5rem\]::after {
     content: var(--tw-content);
-    left: 6rem;
+    left: 5rem;
   }
 
   .md\:after\:top-\[2\.5rem\]::after {
@@ -1046,14 +1014,29 @@ video {
     top: 2.5rem;
   }
 
-  .md\:after\:left-\[3\.7rem\]::after {
+  .md\:after\:left-\[2\.7rem\]::after {
     content: var(--tw-content);
-    left: 3.7rem;
+    left: 2.7rem;
   }
 
   .md\:after\:top-\[4\.25rem\]::after {
     content: var(--tw-content);
     top: 4.25rem;
+  }
+
+  .md\:after\:left-\[5\.5rem\]::after {
+    content: var(--tw-content);
+    left: 5.5rem;
+  }
+
+  .md\:after\:left-\[6rem\]::after {
+    content: var(--tw-content);
+    left: 6rem;
+  }
+
+  .md\:after\:left-\[3\.7rem\]::after {
+    content: var(--tw-content);
+    left: 3.7rem;
   }
 
   .md\:after\:left-\[6\.5rem\]::after {
@@ -1099,11 +1082,6 @@ video {
 }
 
 @media (min-width: 1280px) {
-  .xl\:after\:left-\[6\.25rem\]::after {
-    content: var(--tw-content);
-    left: 6.25rem;
-  }
-
   .xl\:after\:left-\[7\.25rem\]::after {
     content: var(--tw-content);
     left: 7.25rem;
@@ -1177,9 +1155,9 @@ video {
     top: .9rem;
   }
 
-  .\32xl\:after\:left-\[6\.8rem\]::after {
+  .\32xl\:after\:left-\[5\.8rem\]::after {
     content: var(--tw-content);
-    left: 6.8rem;
+    left: 5.8rem;
   }
 
   .\32xl\:after\:top-\[2\.85rem\]::after {
@@ -1187,14 +1165,29 @@ video {
     top: 2.85rem;
   }
 
-  .\32xl\:after\:left-\[4\.1rem\]::after {
+  .\32xl\:after\:left-\[3\.1rem\]::after {
     content: var(--tw-content);
-    left: 4.1rem;
+    left: 3.1rem;
   }
 
   .\32xl\:after\:top-\[4\.9rem\]::after {
     content: var(--tw-content);
     top: 4.9rem;
+  }
+
+  .\32xl\:after\:left-\[6\.4rem\]::after {
+    content: var(--tw-content);
+    left: 6.4rem;
+  }
+
+  .\32xl\:after\:left-\[6\.8rem\]::after {
+    content: var(--tw-content);
+    left: 6.8rem;
+  }
+
+  .\32xl\:after\:left-\[4\.1rem\]::after {
+    content: var(--tw-content);
+    left: 4.1rem;
   }
 
   .\32xl\:after\:h-\[0\.125rem\]::after {
