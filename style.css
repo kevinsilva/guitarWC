@@ -748,8 +748,8 @@ video {
   line-height: 1.4rem;
 }
 
-.tracking-tight {
-  letter-spacing: -0.025em;
+.tracking-normal {
+  letter-spacing: 0em;
 }
 
 .text-zinc-900 {
