@@ -768,6 +768,13 @@ video {
   color: rgb(161 161 170 / var(--tw-text-opacity));
 }
 
+@font-face {
+  font-family: 'Impact';
+
+  src: url('../font/impact-webfont.woff2') format('woff2'),
+       url('../font/impact-webfont.woff') format('woff');
+}
+
 .border-text {
   color: white;
   text-shadow: 0 0 1.5px black, 0 0 1.5px black, 0 0 1.5px black,
@@ -1088,6 +1095,11 @@ video {
 }
 
 @media (min-width: 1280px) {
+  .xl\:after\:left-\[6\.25rem\]::after {
+    content: var(--tw-content);
+    left: 6.25rem;
+  }
+
   .xl\:after\:left-\[7\.25rem\]::after {
     content: var(--tw-content);
     left: 7.25rem;
