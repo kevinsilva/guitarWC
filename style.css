@@ -726,10 +726,9 @@ video {
 }
 
 @font-face {
-  font-family: 'Impact';
+  font-family: 'Anton';
 
-  src: url('../font/impact-webfont.woff2') format('woff2'),
-       url('../font/impact-webfont.woff') format('woff');
+  src: url('../font/Anton-Regular.ttf') format('ttf'),
 }
 
 .border-text {
