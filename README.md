@@ -2,25 +2,25 @@
 
 <div align="center">
 
-<a href="">[![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-success?style=flat-square&logo=codesandbox)](https://codesandbox.io/p/github/kevinsilva/guitarWC/csb-guitarWC?file=%2FREADME.md)</a>
+<a href="">[![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-success?style=flat-square&logo=codesandbox)](https://codesandbox.io/p/github/kevinsilva/guitarWC/master?file=%2FREADME.md&workspace=%257B%2522activeFilepath%2522%253A%2522%252FREADME.md%2522%252C%2522openFiles%2522%253A%255B%2522%252FREADME.md%2522%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522spaces%2522%253A%257B%2522clgf1nxs3000x3b6izkn3ov08%2522%253A%257B%2522key%2522%253A%2522clgf1nxs3000x3b6izkn3ov08%2522%252C%2522name%2522%253A%2522Default%2522%252C%2522devtools%2522%253A%255B%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522dev%2522%252C%2522port%2522%253A5173%252C%2522key%2522%253A%2522clgf1o2yb006m3b6i7ynvxrlk%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522dev%2522%252C%2522key%2522%253A%2522clgf1o1x500413b6im3vpcn8u%2522%252C%2522isMinimized%2522%253Afalse%257D%255D%257D%257D%252C%2522currentSpace%2522%253A%2522clgf1nxs3000x3b6izkn3ov08%2522%252C%2522spacesOrder%2522%253A%255B%2522clgf1nxs3000x3b6izkn3ov08%2522%255D%252C%2522hideCodeEditor%2522%253Afalse%257D)</a>
 
 </div>
 
 A quiz game to guess the RGB colors of the guitar.
 
-In 10 rounds, the user is asked to guess the rgb value of the color displayed on the guitar. Choosing the correct value between three options will add 10 points to the score. 
+In 10 rounds, the user is asked to guess the rgb value of the color displayed on the guitar. Choosing the correct value between three options will add 10 points to the score.
 
 ## Implementation Details
 
-This project started by determining the rules for this game, naming the constituent elements and defining the separation of concerns. After designing the interface, the game was developed with both a functional approach, and a object oriented (oop) class approach. 
+This project started by determining the rules for this game, naming the constituent elements and defining the separation of concerns. After designing the interface, the game was developed with both a functional approach, and a object oriented (oop) class approach.
 
 Since the main concept takes inspiration from guitar colors, the monochromatic interface was designed on [Figma](https://www.figma.com/) with the clear intention as to make the guitar color pop. I resorted to HTML and [Tailwind](https://tailwindcss.com/) to program the interface with static elements, making the usability as simple as possible.
 
 Both programming paradigms used, support a clear distinction between the rendering of the dynamic elements of the page, and the business logic of the game. The development environment of [Vite](https://vitejs.dev/), allowed me to easily add [jQuery](https://jquery.com/) in modules, testing the units with [Vitest](https://vitest.dev/). By taking the random generator of the guitar colors as the most basic functionality, it allowed for the formation of questions and the establishment of the color to be displayed. Essentially, there are four different screens: the start screen, the ask screen, the answer screen, and the end screen. Each screen renders the state to the elements. The click events update the state and compute the logic.
- 
+
 ## Usage
 
-Import either the `game.js` class module from `./src/Game.js`, or the `functional.js` module from `./src/functional/functional.js`. 
+Import either the `game.js` class module from `./src/Game.js`, or the `functional.js` module from `./src/functional/functional.js`.
 
 ```js
 <script src="./src/Game.js" type="module"></script>
@@ -30,7 +30,7 @@ Import either the `game.js` class module from `./src/Game.js`, or the `functiona
 <script src="./src/functional/functional.js" type="module"></script>
 ```
 
-To access the DOM references on the `functional.js` module, check the top variable assignments. 
+To access the DOM references on the `functional.js` module, check the top variable assignments.
 
 ```js
 // SCREENS
@@ -72,10 +72,10 @@ class AskElements {
   }
 }
 ```
+
 > **! Note**
 >
 > Production build on the dist folder.
-
 
 ## Development
 
